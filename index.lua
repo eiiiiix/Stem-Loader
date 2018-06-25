@@ -1,7 +1,7 @@
 white = Color.new(255, 255, 255)
 cyan = Color.new(0, 255, 255)
 ::start::
-selfs = System.listDirectory("app0:")
+selfs = System.listDirectory("app0:exe/")
 image = Graphics.loadImage("app0:sce_sys/pic0.png")
 i = 1
 
@@ -11,7 +11,7 @@ while true do
 	Graphics.initBlend()
 	Screen.clear()
 	Graphics.drawImage(0, 0, image)
-	Graphics.debugPrint(250, 25, "StemLoader v0.2 - Vita SELF Loader", white)
+	Graphics.debugPrint(250, 25, "StemLoader v0.3 - Vita SELF/LUA Loader", white)
 	
 	for j, file in pairs(selfs) do
 		x = 5
@@ -37,6 +37,16 @@ while true do
 		Graphics.termBlend()
 		System.wait(800000)
 		System.launchEboot("app0:" .. selfs[i].name)
+	elseif Controls.check(pad, SCE_CTRL_CIRCLE) then
+		Graphics.initBlend()
+		Screen.clear()
+		Graphics.termBlend()
+		Screen.flip()
+		Graphics.initBlend()
+		Screen.clear()
+		Graphics.termBlend()
+		System.wait(800000)
+		dofile("app0:" .. selfs[i].name)
 	elseif Controls.check(pad, SCE_CTRL_TRIANGLE) then
 		System.deleteFile("ux0:app/STEM00001/" .. selfs[i].name)
 		goto start
