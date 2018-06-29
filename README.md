@@ -9,6 +9,8 @@ SELF/LUA file loader for the PS Vita (place SELFs/LUAs and contents for SELF/LUA
 <p>/\ - delete file<p/>
 <p>O - run LUA file<p/>
 <p>X - run SELF files<p/>
+<p>/|\ - scroll up<p/>
+<p>\|/ - scroll down<p/>
 
 ### Contributers
 <p>Voxel9 - Created Stem-Loader<p/>
